@@ -1,8 +1,13 @@
 //https://www.chartjs.org/docs/latest/charts/bar.html
 
-const ctx = document.getElementById("chart-personal-reduction-measures");
+const ctxPersonal = document.getElementById(
+  "chart-personal-reduction-measures"
+);
+const ctxPersonalOther = document.getElementById(
+  "chart-personal-reduction-other"
+);
 
-new Chart(ctx, {
+new Chart(ctxPersonal, {
   type: "bar",
   data: {
     labels: [
@@ -98,7 +103,7 @@ new Chart(ctx, {
     ],
   },
   options: {
-    //indexAxis: "y",
+    indexAxis: "y",
     plugins: {
       title: {
         display: true,
@@ -109,20 +114,53 @@ new Chart(ctx, {
       },
     },
     scales: {
-      xAxes: [
-        {
-          stacked: true,
-        },
-      ],
-      yAxes: [
-        {
-          stacked: true,
-          ticks: {
-            beginAtZero: true,
-          },
-          type: "linear",
-        },
-      ],
+      x: {
+        stacked: true,
+      },
+      y: {
+        stacked: true,
+      },
+    },
+  },
+});
+
+new Chart(ctxPersonalOther, {
+  type: "bar",
+  data: {
+    labels: [
+      "Live car-free",
+      "Switch to green heating",
+      "Avoid one transatlantic flight",
+      "Deep retrofit of house",
+      "Buy green electricity",
+      "Switch to electric car",
+    ],
+    datasets: [
+      {
+        label: "tons CO2",
+        data: [2.4, 2, 1.6, 1.6, 1.4, 1.4],
+        borderWidth: 1,
+        backgroundColor: [
+          "rgba(75, 192, 192, 0.2)",
+          "rgba(54, 162, 235, 0.2)",
+          "rgba(153, 102, 255, 0.2)",
+          "rgba(201, 203, 207, 0.2)",
+          "rgba(255, 99, 132, 0.2)",
+          "rgba(255, 159, 64, 0.2)",
+        ],
+      },
+    ],
+  },
+  options: {
+    indexAxis: "y",
+    plugins: {
+      title: {
+        display: true,
+        text: "Affect of Lifestyle Changes excluding children",
+      },
+      legend: {
+        display: false,
+      },
     },
   },
 });
