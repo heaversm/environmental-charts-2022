@@ -1,5 +1,79 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+}
+
+ul {
+  list-style-position: inside;
+  padding: 0;
+}
+
+li {
+  margin-top: 10px;
+}
+
+a {
+  color: #0E4D64;
+}
+
+a:hover, a:active {
+  color: #70B577;
+}
+
+p {
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-weight: 600;
+}
+
+details {
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  padding: .5em .5em 0;
+  font-size: 14px;
+  margin: 20px;
+
+}
+
+summary {
+  font-weight: bold;
+  margin: -.5em -.5em 0;
+  padding: .5em;
+}
+
+details[open] {
+  padding: .5em;
+}
+
+details[open] summary {
+  border-bottom: 1px solid #aaa;
+  margin-bottom: .5em;
+}
+
+.bold {
+  font-weight: 500;
+}
+
+.center {
+  text-align: center;
+}
+
 .chart-container {
   width: 80vw;
-  margin-top: 50px;
+  margin: 50px auto;
   position: relative;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 20px;
+}
+
+.chart-container h3 {
+  text-align: center;
+  margin: 0;
+}
+
+.chart-description {
+  padding: 0 20px;
+  text-align: center;
 }

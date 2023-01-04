@@ -14,15 +14,15 @@ const ctxPersonalOther = document.getElementById(
   "chart-personal-reduction-other"
 );
 const ctxProduct = document.getElementById("chart-product");
-
 const ctxTravel = document.getElementById("chart-travel");
+const ctxForestLoss = document.getElementById("chart-forest-loss");
 
 new Chart(ctxPersonal, {
   type: "bar",
   data: {
     labels: [
       "Have one fewer child",
-      "Donate effectively",
+      "Donate $1000 to best charity",
       "All Other Measures",
     ],
     datasets: [
@@ -99,7 +99,7 @@ new Chart(ctxPersonal, {
     plugins: {
       title: {
         display: true,
-        text: "Effect of Lifestyle Changes on Carbon Reduction (in tons CO2)",
+        text: "(in tons CO2)",
       },
       legend: {
         display: false,
@@ -116,6 +116,13 @@ new Chart(ctxPersonal, {
     },
   },
 });
+
+const lifestyleTooltip = function (tooltipItems) {
+  const curItem = tooltipItems[0];
+  if (curItem.label === "Avoid one transatlantic flight") {
+    return "Singular action (others require routine behavior)";
+  }
+};
 
 new Chart(ctxPersonalOther, {
   type: "bar",
@@ -141,7 +148,7 @@ new Chart(ctxPersonalOther, {
         backgroundColor: [
           "#0A2F51",
           "#0E4D64",
-          "#137177",
+          "#FF3C90",
           "#188977",
           "#1D9A6C",
           "#39A96B",
@@ -161,7 +168,12 @@ new Chart(ctxPersonalOther, {
     plugins: {
       title: {
         display: true,
-        text: "Effect of Lifestyle Changes Excluding Children",
+        text: "(in tons of CO2)",
+      },
+      tooltip: {
+        callbacks: {
+          footer: lifestyleTooltip,
+        },
       },
       legend: {
         display: false,
@@ -194,7 +206,7 @@ new Chart(ctxProduct, {
     plugins: {
       title: {
         display: true,
-        text: "Lifecycle Carbon Output by Device Type (kg CO2e)",
+        text: "(in kilograms of CO2e)",
       },
     },
     responsive: true,
@@ -261,7 +273,7 @@ new Chart(ctxTravel, {
     plugins: {
       title: {
         display: true,
-        text: "Carbon Emission by Transportation Type (g / km)",
+        text: "(in grams of CO2 per kilometer traveled)",
       },
     },
     responsive: true,
@@ -271,6 +283,91 @@ new Chart(ctxTravel, {
       },
       y: {
         stacked: true,
+      },
+    },
+  },
+});
+
+const forestLossTooltip = function (tooltipItems) {
+  const curItem = tooltipItems[0];
+  if (curItem.label === "2010" && curItem.dataset.label === "Temperate") {
+    return "Gained 6M ha, an area the size of Belgium";
+  }
+
+  if (curItem.label === "2010" && curItem.dataset.label === "Tropical") {
+    return "Lost 47M ha, an area the size of Sweden";
+  }
+  if (curItem.label === "1980") {
+    return "Peak loss of 151M ha, an area the size of India";
+  }
+  if (curItem.label === "1900" || curItem.label === "1910") {
+    return "30M ha, an area the size of Italy";
+  }
+  if (curItem.label === "1980") {
+    return "Peak loss of 151M ha, an area the size of India";
+  }
+};
+
+new Chart(ctxForestLoss, {
+  type: "bar",
+  data: {
+    labels: [
+      "1900",
+      "1910",
+      "1920",
+      "1930",
+      "1940",
+      "1950",
+      "1960",
+      "1970",
+      "1980",
+      "1990",
+      "2000",
+      "2010",
+    ],
+    datasets: [
+      {
+        label: "Temperate",
+        data: [-20, -20, -46, -46, -46, -7.25, -7.25, -7.25, -6, 6, 20, 8],
+        borderWidth: 1,
+        backgroundColor: "#0E4D64",
+      },
+      {
+        label: "Tropical",
+        data: [
+          -10, -10, -69, -69, -69, -108.75, -108.75, -108.75, -145, -78, -51,
+          -47,
+        ],
+        borderWidth: 1,
+        backgroundColor: "#39A96B",
+      },
+    ],
+  },
+  options: {
+    // indexAxis: "y",
+
+    plugins: {
+      title: {
+        display: true,
+        text: "(in millions of hectares, 1 ha = 2.47 acres)",
+      },
+      tooltip: {
+        callbacks: {
+          footer: forestLossTooltip,
+        },
+      },
+    },
+    responsive: true,
+    scales: {
+      x: {
+        stacked: true,
+      },
+      y: {
+        stacked: true,
+        grid: {
+          lineWidth: ({ tick }) => (tick.value == 0 ? 2 : 1),
+          color: (context) => context.tick.value == 0 && "#885FF6",
+        },
       },
     },
   },
