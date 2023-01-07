@@ -68,7 +68,17 @@ details[open] summary {
   padding-bottom: 20px;
 }
 
-.chart-container h3 {
+.chart-sizer {
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+}
+
+.chart-sizer.mw {
+  max-width: 50%;
+}
+
+.chart-container h3, .chart-container h4 {
   text-align: center;
   margin: 0;
 }

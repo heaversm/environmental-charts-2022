@@ -8,29 +8,38 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="chart-container" id="container-temperature">
+    <h3>We are the weather.</h3>
+    <p class="chart-description">The best indicator we have for the severity of our myriad environmental issues is the temperature of our planet. And it's getting hotter everywhere, as seen below in this graph of global temperature anomalies. While a few degrees might not seem like a lot, even <span class="bold">2 degrees change would equate to about <a href="https://coastal.climatecentral.org/map/10/-122.1864/47.6455/?theme=warming&map_type=multicentury_slr_comparison&basemap=roadmap&elevation_model=best_available&lockin_model=levermann_2013&refresh=true&temperature_unit=C&warming_comparison=%5B%222.0%22%2C%224.0%22%5D#12//?compare=scenarios&carbon-end-yr=2100&scenario-a=unchecked&scenario-b=extreme-cuts" target='_blank' rel='noopener noreferrer'>15 feet of sea level rise</a></span>. The level of CO2 in our atmosphere makes this problem worse - locking that heat in to our atmosphere for thousands of years, despite improvements we may make on carbon reduction. Which is why <span class="bold">it is crucial that we act now, when our actions will have the most impact.</span></p>
+    <canvas id="chart-temperature"></canvas>
+    <p class="center"><a href="https://www.ncei.noaa.gov/access/monitoring/climate-at-a-glance/global/time-series" target='_blank' rel='noopener noreferrer'>Source</a></p>
+  </div>
+  <div class="chart-container" id="container-forest-loss">
+    <h3>Addressing climate change will take a sustained global effort.</h3>
+    <p class="chart-description">We can see how our actions make a difference by looking forest gain in <em>temperate</em> forests over the past 3 decades, which in 2020 amounted to 6 million hectares. However,<span class="bold">global forest loss in 2020 still amounted to an 47 million hectares, an area the size of Sweden.</span></p>
+    <canvas id="chart-forest-loss"></canvas>
+    <p class="center"><a href="https://ourworldindata.org/uploads/2021/02/Long-term-forest-loss-%E2%80%93-Marimekko.png" target='_blank' rel='noopener noreferrer'>Source</a></p>
+  </div>
+  <div class="chart-container" id="container-co2-by-country">
+    <h3>Fixing the problem starts with the privileged.</h3>
+    <p class="chart-description">Wealthy nations such as the US have an immensely greater impact on our climate change than the global poor - along with a greater capacity to implement change. While it has fallen by nearly a third since 2000, <span class="bold">the US per capita carbon footprint is still 8 times larger than that of someone living in India.</span></p>
+    <canvas id="chart-co2-by-country"></canvas>
+    <p class="center"><a href="https://ourworldindata.org/per-capita-co2" target='_blank' rel='noopener noreferrer'>Source</a></p>
+  </div>
   <div class="chart-container" id="container-personal-reduction">
-    <h3>Effect of Lifestyle Changes on Carbon Reduction</h3>
-    <p class="chart-description">According to <a href="https://founderspledge.com/stories/climate-and-lifestyle-report" target='_blank' rel='noopener noreferrer'>Founder's Pledge's Climate and Lifestyle Report</a>, <span class="bold">the most significant personal action you can take for climate is to donate effectively, followed by having one fewer child</span> (especially if you live in Western countries such as the US, where <a href="https://ourworldindata.org/per-capita-co2" target='_blank' rel='noopener noreferrer'>carbon footprint is ~8X as large as someone in India</a>). This is more than 6X as effective as the next top 10 measures combined.</p>
+    <h3>Want to make a difference? Start by giving.</h3>
+    <p class="chart-description">According to <a href="https://founderspledge.com/stories/climate-and-lifestyle-report" target='_blank' rel='noopener noreferrer'>Founder's Pledge's Climate and Lifestyle Report</a>, <span class="bold">the most significant personal action you can take for climate is to donate effectively, followed by having one fewer child</span> (especially if you live in a wealthy country, where carbon footprint and resource usage is generally much higher. This is more than 6X as effective as the next top 10 measures combined.</p>
     <canvas id="chart-personal-reduction-measures"></canvas>
     <p class="center"><a href="https://docs.google.com/spreadsheets/d/1a5hAVLQhdumSk87SF-mM2W2GmjTvAtErpcCwr9ndxSo/edit" target='_blank' rel='noopener noreferrer'>Source</a></p>
   </div>
   <div class="chart-container" id="container-personal-reduction-other">
-    <h3>Effect of Lifestyle Changes Excluding Children</h3>
+    <h3>Want a lot of bang for your buck? Skip your next flight!</h3>
     <p class="chart-description">If we look at those remaining measures, all but one require fairly large investments or changes to lifestyle and routines. These are only slightly more impactful, though, than skipping a single transatlantic flight. In other words, <span class="bold">we can have a huge impact by flying less</span>!</p>
     <canvas id="chart-personal-reduction-other"></canvas>
     <p class="center"><a href="https://docs.google.com/spreadsheets/d/1a5hAVLQhdumSk87SF-mM2W2GmjTvAtErpcCwr9ndxSo/edit" target='_blank' rel='noopener noreferrer'>Source</a></p>
   </div>
-  <div class="chart-container" id="container-product">
-    <h3>Lifecycle Carbon Output by Device Type</h3>
-    <p class="chart-description">When it comes to technology's impact on climate, flat screens and desktops are the biggest offenders, especially in energy usage. With all devices, the bulk of the impact comes in the device's production. As such, <span class="bold">the best thing you can do is to keep your device running as long as you can before replacing it</span>.</p>
-    <canvas id="chart-product"></canvas>
-    <p class="center">
-      <a href="https://www.ifi.uzh.ch/dam/jcr:066776d8-d2b0-4c7c-b75d-6b7283cb5791/Study_Digitalization_Climate_Protection_Oct2017.pdf" target='_blank' rel='noopener noreferrer'>Source</a>
-    </p>
-  </div>
-
   <div class="chart-container" id="container-travel">
-    <h3>Carbon Emission by Transport Type</h3>
+    <h3>Here are your travel alternatives.</h3>
     <p class="chart-description">Lots of interesting data to parse through here (click the items in the legend to filter by the different emission metrics). Interesting how large the "manufacture" impact was for electric vehicles vs other transport types. <span class="bold">Every kilometer you can ride your bike vs. drive a car is ~26X less carbon</span>! Considering the <a href="" target='_blank' rel='noopener noreferrer'>average commute for U.S. city dwellers is around 10 miles</a>, most of us could easily be biking instead.</p>
     <canvas id="chart-travel"></canvas>
     <details>
@@ -45,11 +54,22 @@
     </details>
     <p class="center"><a href="https://tnmt.com/infographics/carbon-emissions-by-transport-type/" target='_blank' rel='noopener noreferrer'>Source</a></p>
   </div>
-  <div class="chart-container" id="container-forest-loss">
-    <h3>A century of forest loss</h3>
-    <p class="chart-description">If you're looking for bright spots, this chart showing a trend toward forest gain in temperate forests around the world is encouraging - though <span class="bold">forest loss in 2020 still amounted to an area the size of Sweden</span> </p>
-    <canvas id="chart-forest-loss"></canvas>
-    <p class="center"><a href="https://ourworldindata.org/uploads/2021/02/Long-term-forest-loss-%E2%80%93-Marimekko.png" target='_blank' rel='noopener noreferrer'>Source</a></p>
+  <div class="chart-container" id="container-product">
+    <h3>When it comes to tech, it pays to keep it running.</h3>
+    <p class="chart-description">While using flat screens and desktops consume the most energy, for all the devices below, the bulk of the impact comes in the device's production. As such, <span class="bold">the best thing you can do is to keep your device running as long as you can before replacing it</span>.</p>
+    <canvas id="chart-product"></canvas>
+    <p class="center">
+      <a href="https://www.ifi.uzh.ch/dam/jcr:066776d8-d2b0-4c7c-b75d-6b7283cb5791/Study_Digitalization_Climate_Protection_Oct2017.pdf" target='_blank' rel='noopener noreferrer'>Source</a>
+    </p>
+  </div>
+
+  <div class="chart-container mh" id="container-sector-emissions">
+    <h3>Individual actions matter.</h3>
+    <p class="chart-description">You may often hear that your individual actions don't matter, especially considering the vast emissions produced by industry. But industry exists to feed our individual appetites. Imagine if those appetites included, say, eating less meat.<a href="https://www.thelancet.com/journals/lancet/article/PIIS0140-6736(18)31788-4/fulltext" target='_blank' rel='noopener noreferrer'>One study shows that cutting meat consumption in half in industrialized countries could cut global emissions by 25%</a>, or 12.5 billion tons.</p>
+    <div class="chart-sizer mw"><canvas id="chart-sector-emissions"></canvas></div>
+    <p class="center">
+      <a href="https://ourworldindata.org/emissions-by-sector" target='_blank' rel='noopener noreferrer'>Source</a>
+    </p>
   </div>
   
   <script src="chart.js"></script>
